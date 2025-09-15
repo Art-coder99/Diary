@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Путешествия</title>
+</head>
+<body>
+<h2>Все путешествия</h2>
+{% for trip in trips %}
+<div style="border:1px solid #ccc; padding:10px; margin:10px;">
+    <h3>{{ trip.title }}</h3>
+    <p>Местоположение: {{ trip.location }}</p>
+    <p>Стоимость: {{ trip.cost }}$</p>
+    <img src="{{ url_for('static', filename='uploads/' + trip.image_url.split('/')[-1]) }}" width="200">
+</div>
+{% endfor %}
+<a href="{{ url_for('add_trip') }}">Добавить путешествие</a>
+</body>
+</html>
